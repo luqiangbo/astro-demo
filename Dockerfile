@@ -1,9 +1,8 @@
 FROM node:18.15.0-alpine as builder
 
 
-# build:dev  //测试
-# build:global  //global
-# build:us //us
+# dev  //测试
+# prod  //prod
 ARG WEB_ENV
 
 WORKDIR /data/app/eway/
@@ -16,7 +15,7 @@ RUN pnpm install
 
 COPY . /data/app/eway/
 
-RUN pnpm build
+RUN pnpm build:$WEB_ENV
 
 
 FROM nginx
