@@ -1,8 +1,8 @@
 kind: pipeline
-name: copy-good-file
+name: create-file
 
 steps:
-  - name: copy-good
+  - name: create-ens-file
     image: alpine
     commands:
-      - cp /drone/src/pnpm-lock.yaml /root/
+      - echo "1234" > /root/ens.txt
