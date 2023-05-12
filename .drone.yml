@@ -1,17 +1,8 @@
-pipeline:
-  build-dev:
-    image: docker
+kind: pipeline
+name: copy-good-file
+
+steps:
+  - name: copy-good
+    image: alpine
     commands:
-      - docker build --build-arg WEB_ENV=dev -t my-image-dev .
-    when:
-      event: tag
-      branch: '*'
-      ref: refs/tags/dev.*
-  build-prod:
-    image: docker
-    commands:
-      - docker build --build-arg WEB_ENV=prod -t my-image-prod .
-    when:
-      event: tag
-      branch: '*'
-      ref: refs/tags/prod.*
+      - cp /drone/src/pnpm-lock.yaml /root/
