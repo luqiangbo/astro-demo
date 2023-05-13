@@ -1,8 +1,10 @@
 kind: pipeline
-name: create-file
+type: docker
+name: default
 
 steps:
-  - name: create-ens-file
+  - name: greeting
     image: alpine
     commands:
-      - echo "1234" > /root/ens.txt
+      - echo hello
+      - echo world
