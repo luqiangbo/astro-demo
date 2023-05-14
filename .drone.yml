@@ -14,8 +14,12 @@ pipeline:
     privileged: true
   build-prod:
     image: docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker build --build-arg WEB_ENV=prod -t my-image-prod .
+      - docker-compose down
+      - docker-compose build
+      - docker-compose up -d
     when:
       event: tag
       branch: '*'
