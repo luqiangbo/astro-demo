@@ -1,17 +1,19 @@
 pipeline:
   build-dev:
-    image: plugins/docker
+    image: docker
     commands:
       - docker build --build-arg WEB_ENV=dev -t my-image-dev .
     when:
       event: tag
       branch: '*'
       ref: refs/tags/dev.*
+    privileged: true
   build-prod:
-    image: plugins/docker
+    image: docker
     commands:
       - docker build --build-arg WEB_ENV=prod -t my-image-prod .
     when:
       event: tag
       branch: '*'
       ref: refs/tags/prod.*
+    privileged: true
