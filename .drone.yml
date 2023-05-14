@@ -5,7 +5,7 @@ pipeline:
       - apk add --no-cache rsync
       - rm -rf /usr/share/nginx/html/astro/*
       - mkdir -p /usr/share/nginx/html/astro
-      - cp -r dist/* /usr/share/nginx/html/astro/
+      - cp -r dist/* /usr/share/nginx/html/astro
     when:
       event: tag
       branch: '*'
