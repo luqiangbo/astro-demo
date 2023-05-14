@@ -17,7 +17,7 @@ RUN pnpm install
 
 COPY . /data/app/eway/
 
-RUN pnpm ${WEB_ENV} 
+RUN pnpm $WEB_ENV 
 
 
 FROM nginx

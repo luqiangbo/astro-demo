@@ -1,11 +1,11 @@
 version: '3'
 services:
-  eway:
+  astro:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        WEB_ENV: ${WEB_ENV} # 'build:dev'
-    container_name: eway
+        WEB_ENV: build:dev # 'build:dev'
+    container_name: astro1
     ports:
       - 9000:80 # 宿主机可以用 127.0.0.1:9000
