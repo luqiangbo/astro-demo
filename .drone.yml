@@ -1,11 +1,10 @@
 pipeline:
   build-dev:
-    image: alpine
+    image: docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - apk add --no-cache rsync
-      - rm -rf /usr/share/nginx/html/astro/*
-      - mkdir -p /usr/share/nginx/html/astro
-      - cp -r dist/* /usr/share/nginx/html/astro
+      - docker build --build-arg WEB_ENV=dev -t my-image-dev .
     when:
       event: tag
       branch: '*'
