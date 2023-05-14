@@ -1,11 +1,12 @@
 version: '3'
 services:
   astro:
+    image: image-web-astro-dev:latest
     build:
       context: .
       dockerfile: Dockerfile
       args:
         WEB_ENV: 'build:dev' # 'build:dev'
-    container_name: astro1c
+    container_name: astro-dev
     ports:
-      - 9002:80 # 宿主机可以用 127.0.0.1:9000
+      - 9000:80 # 宿主机可以用 127.0.0.1:9000
