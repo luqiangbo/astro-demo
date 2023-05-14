@@ -2,6 +2,8 @@ pipeline:
   build-dev:
     image: docker
     commands:
+      - sudo apt-get update
+      - sudo apt-get install -y docker.io
       - docker build --build-arg WEB_ENV=dev -t my-image-dev .
     when:
       event: tag
