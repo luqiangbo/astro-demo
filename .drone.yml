@@ -5,8 +5,8 @@ pipeline:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
       - docker stop astro1 && docker rm astro1
-      - docker build --build-arg WEB_ENV=build:dev -t astro  .
-      - docker run -d -p 9000:80 --name astro1 -e WEB_ENV=build:dev astro
+      - docker build --build-arg WEB_ENV=build:dev -t astro10  .
+      - docker run -d -p 9000:80 --name astro1 -e WEB_ENV=build:dev astro10
     when:
       event: tag
       branch: '*'
@@ -17,9 +17,9 @@ pipeline:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker-compose down
-      - docker-compose build
-      - docker-compose up -e WEB_ENV=build:prod -e ENV=prod -d
+      - docker stop astro2 && docker rm astro2
+      - docker build --build-arg WEB_ENV=build:prod -t astro20  .
+      - docker run -d -p 9001:80 --name astro2 -e WEB_ENV=build:prod astro20
     when:
       event: tag
       branch: '*'
