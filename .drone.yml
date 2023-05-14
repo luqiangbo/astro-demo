@@ -6,7 +6,7 @@ pipeline:
     commands:
       - docker-compose down
       - docker-compose build
-      - docker-compose up -d
+      - docker-compose up -e WEB_ENV=build:dev -e ENV=dev -d
     when:
       event: tag
       branch: '*'
@@ -19,7 +19,7 @@ pipeline:
     commands:
       - docker-compose down
       - docker-compose build
-      - docker-compose up -d
+      - docker-compose up -e WEB_ENV=build:prod -e ENV=prod -d
     when:
       event: tag
       branch: '*'
