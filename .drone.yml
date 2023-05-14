@@ -1,6 +1,6 @@
 pipeline:
   build-dev:
-    image: ubuntu
+    image: plugins/docker
     commands:
       - docker build --build-arg WEB_ENV=dev -t my-image-dev .
     when:
@@ -8,7 +8,7 @@ pipeline:
       branch: '*'
       ref: refs/tags/dev.*
   build-prod:
-    image: ubuntu
+    image: plugins/docker
     commands:
       - docker build --build-arg WEB_ENV=prod -t my-image-prod .
     when:

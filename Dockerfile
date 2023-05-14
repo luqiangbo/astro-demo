@@ -20,6 +20,6 @@ RUN pnpm build:$WEB_ENV
 
 FROM nginx
 
-COPY --from=builder /data/app/eway/dist/ /usr/share/nginx/html/
+COPY --from=builder /data/app/eway/dist/ /usr/share/nginx/html/123
 
 COPY --from=builder /data/app/eway/eway.conf /etc/nginx/conf.d/eway.conf
