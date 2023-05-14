@@ -3,8 +3,8 @@ pipeline:
     image: alpine
     commands:
       - apk add --no-cache rsync
-      - rm -rf /usr/share/nginx/html/123/*
-      - cp -r dist /usr/share/nginx/html/123
+      - rm -rf /usr/share/nginx/html/astro/*
+      - cp -r dist /usr/share/nginx/html/astro
     when:
       event: tag
       branch: '*'
