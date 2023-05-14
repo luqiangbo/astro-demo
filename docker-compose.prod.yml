@@ -6,6 +6,6 @@ services:
       dockerfile: Dockerfile
       args:
         WEB_ENV: 'build:prod' # 'build:dev'
-    container_name: astro1
+    container_name: astro2c
     ports:
       - 9003:80 # 宿主机可以用 127.0.0.1:9000
