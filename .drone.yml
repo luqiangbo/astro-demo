@@ -1,8 +1,17 @@
-kind: pipeline
-name: create-file
-
-steps:
-  - name: create-ens-file
-    image: alpine
+pipeline:
+  build-dev:
+    image: docker
     commands:
-      - echo "1234" > /root/ens.txt
+      - docker build --build-arg WEB_ENV=dev -t my-image-dev .
+    when:
+      event: tag
+      branch: '*'
+      ref: refs/tags/dev.*
+  build-prod:
+    image: docker
+    commands:
+      - docker build --build-arg WEB_ENV=prod -t my-image-prod .
+    when:
+      event: tag
+      branch: '*'
+      ref: refs/tags/prod.*
