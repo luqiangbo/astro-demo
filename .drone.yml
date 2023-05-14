@@ -4,7 +4,8 @@ pipeline:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker build --build-arg WEB_ENV=dev -t my-image-dev .
+      - docker-compose down
+      - docker-compose up -d
     when:
       event: tag
       branch: '*'
