@@ -1,10 +1,10 @@
 pipeline:
   build-dev:
-    image: ubuntu
+    image: alpine
     commands:
-      - apt-get update
-      - apt-get install -y docker.io
-      - docker build --build-arg WEB_ENV=dev -t my-image-dev .
+      - apk add --no-cache rsync
+      - rm -rf /usr/share/nginx/html/123/*
+      - cp -r dist /usr/share/nginx/html/123
     when:
       event: tag
       branch: '*'
