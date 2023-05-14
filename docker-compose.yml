@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        WEB_ENV: build:dev # 'build:dev'
+        WEB_ENV: 'build:dev' # 'build:dev'
     container_name: astro1
     ports:
       - 9000:80 # 宿主机可以用 127.0.0.1:9000
