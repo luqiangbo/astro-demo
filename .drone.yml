@@ -5,6 +5,7 @@ pipeline:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
       - docker-compose down
+      - docker-compose build
       - docker-compose up -d
     when:
       event: tag
